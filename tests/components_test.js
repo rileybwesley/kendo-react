@@ -4,7 +4,7 @@ import {
   renderIntoDocument,
   findRenderedDOMComponentWithTag
 } from 'react-addons-test-utils';
-import { createComponent, configs } from '../src'
+import { createComponent, configs } from '../src';
 
 configs.map((config) => {
 
