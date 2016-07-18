@@ -3,6 +3,8 @@ import React, { PropTypes } from 'react';
 import $ from 'jquery';
 import kendoConfigs from './constants';
 
+if(window.location.href.indexOf('debug') !== -1) { console.log($.fn.jquery); }
+
 const propsEqual = (current, next) => JSON.stringify(current) !== JSON.stringify(next);
 
 const requireComponent = (component) => require(`kendo-ui-core/js/${component}`);
