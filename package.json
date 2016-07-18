@@ -3,7 +3,7 @@
   "description": "Kendo components for React.js. A simpler way.",
   "author": "Wesley Riley",
   "user": "rileybwesley",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "scripts": {
     "dist": "webpack",
     "dist:min": "webpack",
@@ -72,8 +72,9 @@
     "webpack-merge": "^0.14.0"
   },
   "peerDependencies": {
+    "kendo-ui-core": "^2016.2.607",
     "react": ">= 0.11.2 < 16.0.0",
-    "kendo-ui-core": "^2016.2.607"
+    "jquery.2": "^1.0.0",
   },
   "repository": {
     "type": "git",
@@ -84,13 +85,13 @@
     "url": "https://github.com/rileybwesley/kendo-react/issues"
   },
   "keywords": [
-    "react",
-    "kendo",
-    "react.js",
-    "react-component",
-    "kendo-ui",
-    "telerik",
     "components",
+    "kendo",
+    "kendo-ui",
+    "react",
+    "react-component",
+    "react.js",
+    "telerik",
     "widgets"
   ],
   "license": "MIT",
@@ -99,6 +100,7 @@
     "test:lint"
   ],
   "dependencies": {
+    "jquery.2": "^1.0.0",
     "kendo-ui-core": "^2016.2.607"
   }
 }
