@@ -1,7 +1,9 @@
 /*eslint-disable max-params, no-unused-expressions, no-console, brace-style, no-shadow */
 import React, { PropTypes } from 'react';
-import $ from 'jquery.2';
+import $ from 'jquery';
 import kendoConfigs from './constants';
+require('kendo-ui-core/css/web/kendo.common.core.min.css');
+require('kendo-ui-core/css/web/kendo.bootstrap.min.css');
 
 if(window.location.href.indexOf('debug') !== -1) { console.log($.fn.jquery); }
 

@@ -126,7 +126,14 @@ export default [
           effects: 'fadeIn'
         }
       }
-    }
+    },
+    children: [
+      <li key="0">
+        <ul>
+          <li>Menu Item 1</li>
+        </ul>
+      </li>
+    ]
   },
   {
     composer: 'kendoMultiSelect',
@@ -134,9 +141,9 @@ export default [
     name: 'MultiSelect',
     namespace: 'kendo.multiselect',
     children: [
-      <option>Item 1</option>,
-      <option>Item 2</option>,
-      <option>Item 3</option>
+      <option key="0">Item 1</option>,
+      <option key="1">Item 2</option>,
+      <option key="2">Item 3</option>
     ]
   },
   {

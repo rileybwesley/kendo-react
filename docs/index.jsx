@@ -1,51 +1,45 @@
 /* eslint-disable global-require, import/no-unresolved, react/no-multi-comp */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Fork from 'react-ghfork';
-import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
 
 import 'purecss/build/pure.css';
 import 'react-ghfork/gh-fork-ribbon.ie.css';
 import 'react-ghfork/gh-fork-ribbon.css';
-import './main.css';
-import '../style.css';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
-// Add your documentation imports here. These are available to
-// React specimen.
-const documentationImports = {
-  React,
-  ReactDOM
-};
-const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
-const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
-const pages = [
-  {
-    path: '/',
-    title: 'Introduction',
-    imports: documentationImports,
-    component: require('catalog/lib/loader!raw!../README.md')
-  }
-];
+import { createComponent, configs } from '../src';
+import AppBar from 'material-ui/AppBar';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-// Catalog - logoSrc="../images/logo.png"
+// const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
+// const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
+
 ReactDOM.render(
-  <div>
-    <Fork
-      className="right"
-      project={project}
-      style={{
-        backgroundColor: '#000'
-      }}
-    />
-    <Catalog
-      pages={pages}
-      specimens={{
-        javascript: props => <CodeSpecimen {...props} lang="javascript" />,
-        js: props => <CodeSpecimen {...props} lang="javascript" />,
-        jsx: props => <ReactSpecimen {...props} />
-      }}
-      title={title}
-    />
-  </div>,
+  <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+    <div>
+      <AppBar iconStyleLeft={{ display: 'none' }} title="Kendo Components - A Simpler Approach" />
+      { configs.map((config, i) => {
+
+        const KendoComponent = createComponent(config.composer);
+        return (
+          <Card key={i}>
+            <CardHeader
+              avatar="http://bestwindows8apps.s3.amazonaws.com/icons/Icon.396777.png"
+              subtitle={config.namespace}
+              title={config.name}
+            />
+            <CardText>
+              <KendoComponent {...config.demoProps}>{config.children}</KendoComponent>
+            </CardText>
+          </Card>
+        );
+
+      }) }
+    </div>
+  </MuiThemeProvider>,
   document.getElementById('app')
 );

@@ -27,7 +27,7 @@ process.env.BABEL_ENV = TARGET;
 
 const common = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg']
+    extensions: ['', '.js', '.jsx', '.css', '.gif', '.png', '.jpg']
   },
   module: {
     preLoaders: [
@@ -44,6 +44,11 @@ const common = {
       {
         test: /\.png$/,
         loader: 'url?limit=100000&mimetype=image/png',
+        include: config.paths.docs
+      },
+      {
+        test: /\.gif$/,
+        loader: 'url?limit=100000&mimetype=image/gif',
         include: config.paths.docs
       },
       {
@@ -96,6 +101,13 @@ if (TARGET === 'start') {
         {
           test: /\.css$/,
           loaders: ['style', 'css']
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader',
+        }, {
+          test: /\.(jpg|png|gif)$/,
+          loader: 'file-loader',
         },
         {
           test: /\.jsx?$/,
@@ -243,7 +255,7 @@ const distCommon = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: config.paths.src
-      }
+      },
     ]
   },
   plugins: [
