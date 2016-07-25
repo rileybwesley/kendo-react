@@ -129,9 +129,7 @@ export default [
     },
     children: [
       <li key="0">
-        <ul>
-          <li>Menu Item 1</li>
-        </ul>
+        
       </li>
     ]
   },
