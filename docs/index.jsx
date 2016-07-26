@@ -14,8 +14,6 @@ injectTapEventPlugin();
 import { createComponent, configs } from '../src';
 import AppBar from 'material-ui/AppBar';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import 'kendo-ui-core/css/web/kendo.common.core.min.css';
-import 'kendo-ui-core/css/web/kendo.bootstrap.min.css';
 
 // const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
 // const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
