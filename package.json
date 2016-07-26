@@ -3,7 +3,7 @@
   "description": "Kendo components for React.js. A simpler way.",
   "author": "Wesley Riley",
   "user": "rileybwesley",
-  "version": "2.7.6",
+  "version": "2.7.7",
   "scripts": {
     "dist": "webpack",
     "dist:min": "webpack",
@@ -74,11 +74,6 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.0"
   },
-  "peerDependencies": {
-    "jquery.2": "^1.0.0",
-    "kendo-ui-core": "^2016.2.607",
-    "react": ">= 0.11.2 < 16.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rileybwesley/kendo-react.git"
@@ -104,6 +99,7 @@
   ],
   "dependencies": {
     "jquery.2": "^1.0.0",
-    "kendo-ui-core": "^2016.2.607"
+    "kendo-ui-core": "^2016.2.607",
+    "react": "^0.11.2"
   }
 }

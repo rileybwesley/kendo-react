@@ -128,8 +128,19 @@ export default [
       }
     },
     children: [
-      <li key="0">
-        
+      <li key={0}>Item 1
+        <ul>
+            <li>Sub Item 1</li>
+            <li>Sub Item 2</li>
+            <li>Sub Item 3</li>
+        </ul>
+      </li>,
+      <li key={1}>Item 2
+          <ul>
+              <li>Sub Item 1</li>
+              <li>Sub Item 2</li>
+              <li>Sub Item 3</li>
+          </ul>
       </li>
     ]
   },
@@ -139,9 +150,9 @@ export default [
     name: 'MultiSelect',
     namespace: 'kendo.multiselect',
     children: [
-      <option key="0">Item 1</option>,
-      <option key="1">Item 2</option>,
-      <option key="2">Item 3</option>
+      <option key={0}>Item 1</option>,
+      <option key={1}>Item 2</option>,
+      <option key={2}>Item 3</option>
     ]
   },
   {
