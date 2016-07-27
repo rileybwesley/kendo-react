@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/rileybwesley/kendo-react.svg)](http://travis-ci.org/rileybwesley/kendo-react) [![bitHound Score](https://www.bithound.io/github/rileybwesley/kendo-react/badges/score.svg)](https://www.bithound.io/github/rileybwesley/kendo-react) [![Dependency Status](https://david-dm.org/rileybwesley/kendo-react.svg)](https://david-dm.org/rileybwesley/kendo-react)
+
 # Kendo Components for React
 
 This is a React implementation for kendo components. Each Kendo UI component has been wrapped in a React shell and can be configured via standard React component attributes. The attributes for the Kendo widgets are passed through the KendoComponent React component into the setOptions and generation methods of the Kendo component.
