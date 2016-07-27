@@ -1,117 +1,44 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Kendo Components for React by rileybwesley</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Kendo Components for React</h1>
-      <h2 class="project-tagline">Kendo components for React.js.</h2>
-      <a href="https://github.com/rileybwesley/kendo-react" class="btn">View on GitHub</a>
-      <a href="https://github.com/rileybwesley/kendo-react/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/rileybwesley/kendo-react/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
-
-    <section class="main-content">
-      <h1>
-<a id="kendo-components-for-react" class="anchor" href="#kendo-components-for-react" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kendo Components for React</h1>
-
-<p>This is a React implementation for kendo components. Each Kendo UI component has been wrapped in a React shell and can be configured via standard React component attributes. The attributes for the Kendo widgets are passed through the KendoComponent React component into the setOptions and generation methods of the Kendo component.</p>
-
-<h2>
-<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Usage</h2>
-
-<p>To use theses components in your application, import the various components into your jsx/js container or component and instantiate the Kendo components just like you would any other. Refer to Kendo Documentation for property and configuration references.</p>
-
-<p><a href="http://demos.telerik.com/kendo-ui/">Kendo Component Documentation</a></p>
-
-<h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
-
-<p>The easiest way to use kendo-react is to install it from NPM and include it in your own React build process (using <a href="https://webpack.github.io/">WebPack</a>, etc).</p>
-
-<div class="highlight highlight-source-js"><pre>npm install kendo<span class="pl-k">-</span>react <span class="pl-k">--</span>save</pre></div>
-
-<p>At this point you can import react-select and its styles in your application as follows:</p>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">Button</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>kendo-react<span class="pl-pds">'</span></span>;
-
-<span class="pl-c">// Be sure to include styles at some point, probably during your bootstrapping</span>
-<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">'</span>kendo-ui-core/css/web/kendo.bootstrap.min.css<span class="pl-pds">'</span></span>;</pre></div>
-
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css<span class="pl-pds">"</span></span> /&gt;
-&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//kendo.cdn.telerik.com/2016.2.714/styles/kendo.bootstrap.min.css<span class="pl-pds">"</span></span> /&gt;
-&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//kendo.cdn.telerik.com/2016.2.714/styles/kendo.default.mobile.min.css<span class="pl-pds">"</span></span> /&gt;</pre></div>
-
-<h3>
-<a id="kendo-professional" class="anchor" href="#kendo-professional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kendo Professional</h3>
-
-<p>Since Kendo Professional is a commercial product, I could not publish professional libraries here. If you do want to use professional components, you can clone this library and pick out the parts you want. Generally these are the steps to get it going:</p>
-
-<ul>
-<li>Install Kendo Professional and jQuery.2:</li>
-</ul>
-
-<div class="highlight highlight-source-js"><pre>npm install <span class="pl-k">--</span>save git<span class="pl-k">+</span>https<span class="pl-k">:</span><span class="pl-c">//username%40emaildomain.com:password@bower.telerik.com/npm-kendo-ui.git</span>
-<span class="pl-c">// Replace username and password with your Kendo credentials</span>
-
-npm install <span class="pl-k">--</span>save jquery.<span class="pl-ii">2</span></pre></div>
-
-<ul>
-<li>Clone this library</li>
-<li>Create a new React Component called "KendoComponent"</li>
-<li>Copy index.js, constants.js, and composition.js into the component folder</li>
-<li>Modify the "requireComponent" function in composition.js:</li>
-</ul>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-c">// Change:</span>
-<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">`</span>kendo-ui-core/js/<span class="pl-s1"><span class="pl-pse">${</span>comp<span class="pl-pse">}</span></span><span class="pl-pds">`</span></span>))
-
-<span class="pl-c">// TO:</span>
-<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">`</span>kendo/js/<span class="pl-s1"><span class="pl-pse">${</span>comp<span class="pl-pse">}</span></span><span class="pl-pds">`</span></span>))</pre></div>
-
-<ul>
-<li>TaDa! You should have a working generic KendoComponent</li>
-</ul>
-
-<h3>
-<a id="all-widgets" class="anchor" href="#all-widgets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>All Widgets</h3>
-
-<p>Because of the shear number of Kendo Widgets, I did not create configuration for all of them. If you would like to use a component that is not currently included in the current configuration you can call the "createComponent" function manually passing the required configuration:</p>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">createComponent</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>kendo-react<span class="pl-pds">'</span></span>;
-
-<span class="pl-k">const</span> <span class="pl-c1">Button</span> <span class="pl-k">=</span> <span class="pl-en">createdComponent</span>(<span class="pl-c1">null</span>, {
-  composer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kendoButton<span class="pl-pds">'</span></span>, <span class="pl-c">// Kendo composition method</span>
-  root<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>button<span class="pl-pds">'</span></span>, <span class="pl-c">// Root component to render the widget</span>
-  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Button<span class="pl-pds">'</span></span>, <span class="pl-c">// Pretty name of the newly created component</span>
-  namespace<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kendo.button<span class="pl-pds">'</span></span>, <span class="pl-c">// Namespace containing the composer method</span>
-  defaultAttributes<span class="pl-k">:</span> { type<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>button<span class="pl-pds">'</span></span> } <span class="pl-c">// Button is particular requires certain attributes on the button dom element</span>
-});
-
-<span class="pl-en">render</span>() {
-  <span class="pl-k">return</span> <span class="pl-k">&lt;</span><span class="pl-c1">Button</span> text<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Foo<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>;
-}</pre></div>
-
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-<p><em>kendo-react</em> is available under MIT. See LICENSE for more details.</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/rileybwesley/kendo-react">Kendo Components for React</a> is maintained by <a href="https://github.com/rileybwesley">rileybwesley</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6" > <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7" > <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8" > <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9" > <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>kendo-react</title>
 
   
-  </body>
+  
+
+  
+  <link href="app.3d200a4ce1e4e28a8a3c.css" rel="stylesheet">
+  
+
+  
+
+</head>
+<body>
+
+
+
+<div id="app"></div>
+
+
+
+
+
+
+
+<script src="manifest.0ca57279a96fbee11db7.js"></script>
+
+<script src="vendors.361bd1a4179bc2b54bec.js"></script>
+
+<script src="app.3d200a4ce1e4e28a8a3c.js"></script>
+
+
+
+
+
+</body>
 </html>
