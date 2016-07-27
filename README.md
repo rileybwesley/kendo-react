@@ -1,4 +1,4 @@
-# kendo-react - Kendo Components for React
+# Kendo Components for React
 
 This is a React implementation for kendo components. Each Kendo UI component has been wrapped in a React shell and can be configured via standard React component attributes. The attributes for the Kendo widgets are passed through the KendoComponent React component into the setOptions and generation methods of the Kendo component.
 
