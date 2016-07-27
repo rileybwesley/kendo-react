@@ -1,48 +1,80 @@
-[![build status](https://secure.travis-ci.org/rileybwesley/kendo-react.svg)](http://travis-ci.org/rileybwesley/kendo-react) [![bitHound Score](https://www.bithound.io/github/rileybwesley/kendo-react/badges/score.svg)](https://www.bithound.io/github/rileybwesley/kendo-react) [![Dependency Status](https://david-dm.org/rileybwesley/kendo-react.svg)](https://david-dm.org/rileybwesley/kendo-react)
+# kendo-react - Kendo Components for React
 
-# kendo-react - Boilerplate for React.js components
-
-This is a simple boilerplate that has been developed to make it easier to develop React components and small projects.
-
-> Check out [SurviveJS - Webpack and React](http://rileybwesley.com/) to dig deeper into the topic.
+This is a React implementation for kendo components. Each Kendo UI component has been wrapped in a React shell and can be configured via standard React component attributes. The attributes for the Kendo widgets are passed through the KendoComponent React component into the setOptions and generation methods of the Kendo component.
 
 ## Basic Usage
 
-If you want to replace project meta information (author etc.), consider using a tool like [replace-project-meta](https://www.npmjs.com/package/replace-project-meta).
+To use theses components in your application, import the various components into your jsx/js container or component and instantiate the Kendo components just like you would any other. Refer to Kendo Documentation for property and configuration references.
 
-### Common Tasks
+[Kendo Component Documentation](http://demos.telerik.com/kendo-ui/)
 
-* Developing - **npm start** - Runs the development server at *localhost:8080* and use Hot Module Replacement. You can override the default host and port through env (`HOST`, `PORT`).
-* Creating a version - **npm version <x.y.z>** - Updates */dist* and *package.json* with the new version and create a version tag to Git.
-* Publishing a version - **npm publish** - Pushes a new version to npm and updates the project site.
+## Installation
 
-### Testing
+The easiest way to use kendo-react is to install it from NPM and include it in your own React build process (using [WebPack](https://webpack.github.io/), etc).
 
-The test setup is based on Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to `build/`.
+```javascript
+npm install kendo-react --save
+```
 
-* Running tests once - **npm test**
-* Running tests continuously **npm run test:tdd**
-* Linting - **npm run test:lint** - Runs ESLint.
-
-### Documentation Site
-
-The boilerplate includes a [GitHub Pages](https://pages.github.com/) specific portion for setting up a documentation site for the component. The main commands handle with the details for you. Sometimes you might want to generate and deploy it by hand, or just investigate the generated bundle.
-
-* Building - **npm run gh-pages** - Builds the documentation into `./gh-pages` directory.
-* Deploying - **npm run deploy-gh-pages** - Deploys the contents of `./gh-pages` to the `gh-pages` branch. GitHub will pick this up automatically. Your site will be available through *<user name>.github.io/<project name>`.
-* Generating stats - **npm run stats** - Generates stats that can be passed to [webpack analyse tool](https://webpack.github.io/analyse/). This is useful for investigating what the build consists of.
-
-## Highlighting Demo for the Site
+At this point you can import react-select and its styles in your application as follows:
 
 ```js
-var a = 5;
-var b = 10;
+import { Button } from 'kendo-react';
 
-// just trying out code highlighting feature here
-console.log(a + b);
+// Be sure to include styles at some point, probably during your bootstrapping
+import 'kendo-ui-core/css/web/kendo.bootstrap.min.css';
+```
+
+```html
+<link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.714/styles/kendo.bootstrap.min.css" />
+<link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.714/styles/kendo.default.mobile.min.css" />
+```
+
+### Kendo Professional
+
+Since Kendo Professional is a commercial product, I could not publish professional libraries here. If you do want to use professional components, you can clone this library and pick out the parts you want. Generally these are the steps to get it going:
+
+* Install Kendo Professional and jQuery.2:
+```javascript
+npm install --save git+https://username%40emaildomain.com:password@bower.telerik.com/npm-kendo-ui.git
+// Replace username and password with your Kendo credentials
+
+npm install --save jquery.2
+```
+* Clone this library
+* Create a new React Component called "KendoComponent"
+* Copy index.js, constants.js, and composition.js into the component folder
+* Modify the "requireComponent" function in composition.js:
+```js
+// Change:
+require(`kendo-ui-core/js/${comp}`))
+
+// TO:
+require(`kendo/js/${comp}`))
+```
+* TaDa! You should have a working generic KendoComponent
+
+### All Widgets
+
+Because of the shear number of Kendo Widgets, I did not create configuration for all of them. If you would like to use a component that is not currently included in the current configuration you can call the "createComponent" function manually passing the required configuration:
+
+```js
+import { createComponent } from 'kendo-react';
+
+const Button = createdComponent(null, {
+  composer: 'kendoButton', // Kendo composition method
+  root: 'button', // Root component to render the widget
+  name: 'Button', // Pretty name of the newly created component
+  namespace: 'kendo.button', // Namespace containing the composer method
+  defaultAttributes: { type: 'button' } // Button is particular requires certain attributes on the button dom element
+});
+
+render() {
+  return <Button text="Foo" />;
+}
 ```
 
 ## License
 
 *kendo-react* is available under MIT. See LICENSE for more details.
-

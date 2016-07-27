@@ -27,7 +27,7 @@ process.env.BABEL_ENV = TARGET;
 
 const common = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.gif', '.png', '.jpg']
+    extensions: ['', '.js', '.jsx', '.css', '.gif', '.png', '.jpg', '.ttf', '.woff']
   },
   module: {
     preLoaders: [
@@ -59,6 +59,11 @@ const common = {
       {
         test: /\.json$/,
         loader: 'json',
+        include: path.join(ROOT_PATH, 'package.json')
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file',
         include: path.join(ROOT_PATH, 'package.json')
       }
     ]

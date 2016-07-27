@@ -11,20 +11,20 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import loadTests from './testLoader';
+loadTests();
+
 import { createComponent, configs } from '../src';
 import AppBar from 'material-ui/AppBar';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-// const title = `${NAME} v${VERSION}`; // eslint-disable-line no-undef
-// const project = `${USER}/${NAME}`; // eslint-disable-line no-undef
-
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
     <div>
-      <AppBar iconStyleLeft={{ display: 'none' }} title="Kendo Components - A Simpler Approach" />
+      <AppBar iconStyleLeft={{ display: 'none' }} title="Kendo Components - Facebook React" />
       { configs.map((config, i) => {
 
-        const KendoComponent = createComponent(config.composer);
+        const KendoComponent = !config.isProfessional && !config.isDemoable && createComponent(config.composer) || null;
         return (
           <Card key={i}>
             <CardHeader
@@ -33,7 +33,15 @@ ReactDOM.render(
               title={config.name}
             />
             <CardText>
-              <KendoComponent {...config.demoProps}>{config.children}</KendoComponent>
+              {KendoComponent !== null &&
+                <KendoComponent {...config.demoProps}>{config.children}</KendoComponent>
+              || null}
+              {config.isProfessional &&
+                <span>Professional Version Only (See Documentation)</span>
+              || null}
+              {config.notDemoable &&
+                <span>No Demo (N/A)</span>
+              || null}
             </CardText>
           </Card>
         );

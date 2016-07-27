@@ -9,7 +9,7 @@ if(window.location.href.indexOf('debug') !== -1) { console.log($.fn.jquery); }
 
 const propsEqual = (current, next) => JSON.stringify(current) !== JSON.stringify(next);
 
-const requireComponent = (component) => require(`kendo-ui-core/js/${component}`);
+const requireComponent = (component) => component.split(',').map((comp) => require(`kendo-ui-core/js/${comp}`));
 
 const generateComponent = (kendoEl, options, composer, kendoComponentName) => {
   let component = $(kendoEl).data(composer);
@@ -26,11 +26,13 @@ const generateComponent = (kendoEl, options, composer, kendoComponentName) => {
   }
 };
 
-export const component = (composer) => {
-  let config;
-  for (let i = 0; i < kendoConfigs.length; i++) {
-    if (kendoConfigs[i].composer === composer) {
-      config = kendoConfigs[i];
+export const component = (composer, adhocConfig) => {
+  let config = adhocConfig;
+  if(!adhocConfig) {
+    for (let i = 0; i < kendoConfigs.length; i++) {
+      if (kendoConfigs[i].composer === composer) {
+        config = kendoConfigs[i];
+      }
     }
   }
 
