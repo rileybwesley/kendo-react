@@ -109,10 +109,10 @@ if (TARGET === 'start') {
         },
         {
           test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: 'file-loader',
+          loader: 'file-loader'
         }, {
           test: /\.(jpg|png|gif)$/,
-          loader: 'file-loader',
+          loader: 'file-loader'
         },
         {
           test: /\.jsx?$/,
@@ -260,7 +260,7 @@ const distCommon = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: config.paths.src
-      },
+      }
     ]
   },
   plugins: [

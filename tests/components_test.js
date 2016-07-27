@@ -2,18 +2,18 @@
 import React from 'react';
 import {
   renderIntoDocument,
-  findRenderedDOMComponentWithTag
+  findRenderedDOMComponentWithClass
 } from 'react-addons-test-utils';
 import { createComponent, configs } from '../src';
 
-configs.map((config) => {
+configs.filter((config) => !config.isProfessional).map((config) => {
 
   describe(`Kendo ${config.name} Component`, function() {
 
     it('should render container', function() {
       const KendoComponent = createComponent(config.composer);
       const component = renderIntoDocument(<KendoComponent {...config.demoProps}>{config.children}</KendoComponent>);
-      const root = findRenderedDOMComponentWithTag(component, config.root);
+      const root = findRenderedDOMComponentWithClass(component, config.composer);
       expect(root !== undefined).to.equal(true)
     });
 
