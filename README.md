@@ -15,12 +15,12 @@ To use theses components in your application, import the various components into
 The easiest way to use kendo-react is to install it from NPM and include it in your own React build process (using [WebPack](https://webpack.github.io/), etc).
 
 ```javascript
-npm install kendo-react --save
+npm install kendo-react --save;
 ```
 
 At this point you can import react-select and its styles in your application as follows:
 
-```js
+```javascript
 import { Button } from 'kendo-react';
 
 // Be sure to include styles at some point, probably during your bootstrapping
@@ -38,30 +38,33 @@ import 'kendo-ui-core/css/web/kendo.bootstrap.min.css';
 Since Kendo Professional is a commercial product, I could not publish professional libraries here. If you do want to use professional components, you can clone this library and pick out the parts you want. Generally these are the steps to get it going:
 
 * Install Kendo Professional and jQuery.2:
+
 ```javascript
 npm install --save git+https://username%40emaildomain.com:password@bower.telerik.com/npm-kendo-ui.git
-// Replace username and password with your Kendo credentials
 
-npm install --save jquery.2
+// Replace username and password with your Kendo credentials
+npm install --save jquery.2;
 ```
 * Clone this library
 * Create a new React Component called "KendoComponent"
 * Copy index.js, constants.js, and composition.js into the component folder
 * Modify the "requireComponent" function in composition.js:
-```js
+
+```javascript
 // Change:
-require(`kendo-ui-core/js/${comp}`))
+require(`kendo-ui-core/js/${comp}`));
 
 // TO:
-require(`kendo/js/${comp}`))
+require(`kendo/js/${comp}`));
 ```
+
 * TaDa! You should have a working generic KendoComponent
 
 ### All Widgets
 
 Because of the shear number of Kendo Widgets, I did not create configuration for all of them. If you would like to use a component that is not currently included in the current configuration you can call the "createComponent" function manually passing the required configuration:
 
-```js
+```javascript
 import { createComponent } from 'kendo-react';
 
 const Button = createdComponent(null, {

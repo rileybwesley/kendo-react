@@ -1,14 +1,19 @@
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+.toolbar {
+  background-color: #00BCD4 !important;
 }
 
-.github-fork-ribbon {
-    position: fixed;
-
-    letter-spacing: 0.01em;
+.toolbar span {
+  color: #FFFFFF !important;
 }
 
-/* TODO: insert main styles of your demo here */
+.toolbar button span, .toolbar a span{
+  color: #000000 !important;
+}
+
+pre, code {
+  background-color: #F7F7F7 !important;
+}
+
+pre {
+  padding:20px;
+}

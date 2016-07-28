@@ -65,6 +65,10 @@ const common = {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file',
         include: path.join(ROOT_PATH, 'package.json')
+      },
+      {
+        test: /\.md$/,
+        loader: "html!markdown"
       }
     ]
   },
