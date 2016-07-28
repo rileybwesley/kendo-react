@@ -68,7 +68,7 @@ const common = {
       },
       {
         test: /\.md$/,
-        loader: "html!markdown"
+        loader: 'html!markdown'
       }
     ]
   },
