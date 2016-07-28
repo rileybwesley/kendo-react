@@ -1,4 +1,4 @@
-[comment]: <> ([![build status](https://secure.travis-ci.org/rileybwesley/kendo-react.svg)](http://travis-ci.org/rileybwesley/kendo-react))
+[![build status](https://secure.travis-ci.org/rileybwesley/kendo-react.svg)](http://travis-ci.org/rileybwesley/kendo-react)
  [![bitHound Score](https://www.bithound.io/github/rileybwesley/kendo-react/badges/score.svg)](https://www.bithound.io/github/rileybwesley/kendo-react) [![Dependency Status](https://david-dm.org/rileybwesley/kendo-react.svg)](https://david-dm.org/rileybwesley/kendo-react)
 
 # Kendo Components for React
