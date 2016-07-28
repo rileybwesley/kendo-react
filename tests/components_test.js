@@ -1,10 +1,11 @@
 /*eslint-disable no-console */
-import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedDOMComponentWithClass
-} from 'react-addons-test-utils';
-import { createComponent, configs } from '../src';
+// import React from 'react';
+// import {
+//   renderIntoDocument,
+//   findRenderedDOMComponentWithClass
+// } from 'react-addons-test-utils';
+// import { createComponent, configs } from '../src';
+import { configs } from '../src';
 
 configs.filter((config) => !config.isProfessional).map((config) => {
 
