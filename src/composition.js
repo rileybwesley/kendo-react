@@ -1,6 +1,6 @@
 /*eslint-disable max-params, no-unused-expressions, no-console, brace-style, no-shadow */
 import React, { PropTypes } from 'react';
-import $ from 'jquery.2';
+import $ from 'jquery';
 import kendoConfigs from './constants';
 
 if(window.location.href.indexOf('debug') !== -1) { console.log($.fn.jquery); }
